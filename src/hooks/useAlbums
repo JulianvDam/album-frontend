@@ -1,0 +1,28 @@
+import { useEffect, useState } from "react";
+
+const endpoint = `${process.env.REACT_APP_API_BASE}/album`;
+
+const useAlbums = () => {
+  const [albums, setAlbums] = useState([]);
+
+  useEffect(() => {
+    const fetchAlbums = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/album`);
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        const data = await response.json();
+        setAlbums(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchAlbums();
+  }, []);
+
+  return albums;
+};
+
+export default useAlbums;
