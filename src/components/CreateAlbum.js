@@ -30,4 +30,4 @@ const CreateAlbum = () => {
   );
 };
 
-export { AlbumDetail, CreateAlbum };
+export { CreateAlbum };
