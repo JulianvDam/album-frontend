@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom';
-import useAlbum from './useAlbum';
+import useAlbum from '../hooks/useAlbum';
 import AlbumForm from './AlbumForm';
 
 const AlbumDetail = () => {
