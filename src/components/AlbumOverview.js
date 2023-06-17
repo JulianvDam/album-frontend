@@ -1,33 +1,39 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Card, CardActionArea, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import AlbumCard from './AlbumCard';
-import useAlbums from "../hooks/useAlbums";
+import useAlbums from '../hooks/useAlbums';
 
-export const AlbumOverview = ({ albums }) => {
+const AlbumOverview = () => {
+  const albums = useAlbums();
+
   if (!albums || !albums.length) {
     return <div>Loading albums...</div>;
   }
 
   return (
-    <Grid container spacing={2}>
-      {albums.map((album) => (
-        <Grid item xs={12} sm={6} md={4} key={album.id}>
-          <AlbumCard
-            id={album.id}
-            name={album.name}
-            artist={album.artist}
-            imageUrl={album.imageUrl}
-          />
-        </Grid>
-      ))}
-    </Grid>
+    <>
+      <Grid container spacing={2}>
+        {albums.map((album) => (
+          <Grid item xs={12} sm={6} md={4} key={album.id}>
+            <AlbumCard
+              id={album.id}
+              name={album.name}
+              artist={album.artist}
+              imageUrl={album.imageUrl}
+            />
+          </Grid>
+        ))}
+      </Grid>
+      <Card>
+        <CardActionArea component={Link} to="/new">
+          <Button variant="contained" color="primary">
+            Add New Album
+          </Button>
+        </CardActionArea>
+      </Card>
+    </>
   );
-};
-
-export const AlbumOverviewWrapper = () => {
-  const albums = useAlbums();
-
-  return <AlbumOverview albums={albums} />;
 };
 
 export default AlbumOverview;
