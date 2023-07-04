@@ -26,7 +26,7 @@ const AlbumForm = ({ album, onRemove }) => {
   return (
     <Card>
       <CardContent>
-        <form onSubmit={handleSubmit}>
+        <form>
           <Controller
             name="name"
             control={control}
