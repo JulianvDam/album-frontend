@@ -30,16 +30,12 @@ const AlbumDetail = () => {
 
   const editAlbum = async (data) => {
     try {
-      const requestBody = {
-        item1: albumId,
-        item2: JSON.stringify(data)
-      };
-
       const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/album/${albumId}`, {
         method: 'PUT',
-        body: JSON.stringify(requestBody),
+        body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
       });
+
       if (!response.ok) {
         console.error(response.statusText);
         return;
@@ -50,6 +46,7 @@ const AlbumDetail = () => {
       console.error(error);
     }
   };
+
 
   if (!album) {
     return <div>No album found...</div>;
