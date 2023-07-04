@@ -30,6 +30,7 @@ const AlbumDetail = () => {
   return (
     <div>
       <Link to="/">Back to Overview</Link>
+      <div>Edit Album:</div>
       <AlbumForm album={album} onRemove={removeAlbum} />
     </div>
   );
