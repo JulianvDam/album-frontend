@@ -14,14 +14,31 @@ const AlbumDetail = () => {
         if (!response.ok) {
           throw new Error('Failed to delete album');
         }
-        // Handle successful deletion
-        // Redirect to the album overview page
         navigate('/');
       })
       .catch(error => {
         console.error(error);
       });
   };
+
+
+  const editAlbum = () => {
+    fetch(`${process.env.REACT_APP_API_BASE}/api/album/${albumId}`, {
+      method: 'PUT',
+      body: JSON.stringify(updatedAlbum),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to update album');
+        }
+        navigate('/');
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
 
   if (!album) {
     return <div>No album found...</div>;
@@ -31,7 +48,7 @@ const AlbumDetail = () => {
     <div>
       <Link to="/">Back to Overview</Link>
       <div>Edit Album:</div>
-      <AlbumForm album={album} onRemove={removeAlbum} />
+      <AlbumForm album={album} onSubmit={editAlbum} onRemove={removeAlbum} />
     </div>
   );
 };
