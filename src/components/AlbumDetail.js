@@ -28,24 +28,24 @@ const AlbumDetail = () => {
     }
   };
 
+  const editAlbum = async (data) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/album/${albumId}`, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+      });
 
-  // const editAlbum = () => {
-  //   fetch(`${process.env.REACT_APP_API_BASE}/api/album/${albumId}`, {
-  //     method: 'PUT',
-  //     body: JSON.stringify(updatedAlbum),
-  //     headers: { 'Content-Type': 'application/json' },
-  //   })
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error('Failed to update album');
-  //       }
-  //       navigate('/');
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
-  // };
+      if (!response.ok) {
+        console.error(response.statusText);
+        return;
+      }
 
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   if (!album) {
     return <div>No album found...</div>;
@@ -55,8 +55,7 @@ const AlbumDetail = () => {
     <div>
       <Link to="/">Back to Overview</Link>
       <div>Edit Album:</div>
-      <AlbumForm album={album} onRemove={() => removeAlbum(albumId)} />
-
+      <AlbumForm album={album} onSubmit={editAlbum} onRemove={() => removeAlbum(albumId)} />
     </div>
   );
 };
