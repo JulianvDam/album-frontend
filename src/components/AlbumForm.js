@@ -62,7 +62,7 @@ const AlbumForm = ({ album, onSubmit, onRemove }) => {
             )}
           />
           <Button type="submit" variant="contained" color="primary">
-            Submit
+            {album ? 'Edit Album' : 'Create Album'}
           </Button>
         </form>
         {onRemove !== undefined && (
