@@ -26,6 +26,9 @@ const AlbumForm = ({ album, onSubmit, onRemove }) => {
   const handleFormSubmit = (data) => {
     onSubmit(data);
   };
+  const handleFormDelete = (data) => {
+    onRemove(data);
+  }
 
   return (
     <Card>
@@ -80,10 +83,10 @@ const AlbumForm = ({ album, onSubmit, onRemove }) => {
             <Button
               variant="contained"
               color="secondary"
-              onClick={handleRemove}
+              onClick={handleRemove(handleFormDelete)}
               style={{ marginLeft: '8px' }}
             >
-              Remove
+              Delete album
             </Button>
           )}
         </form>

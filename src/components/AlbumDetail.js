@@ -8,17 +8,23 @@ const AlbumDetail = () => {
   const album = useAlbum(albumId);
   const navigate = useNavigate();
 
-  const removeAlbum = () => {
-    fetch(`${process.env.REACT_APP_API_BASE}/api/album/${albumId}`, { method: 'DELETE' })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to delete album');
-        }
-        navigate('/');
-      })
-      .catch(error => {
-        console.error(error);
+  const removeAlbum = async (id) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/album`, {
+        method: 'DELETE',
+        body: JSON.stringify(id),
+        headers: { 'Content-Type': 'application/json' },
       });
+
+      if (!response.ok) {
+        console.error(response.statusText);
+        return;
+      }
+
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
 
