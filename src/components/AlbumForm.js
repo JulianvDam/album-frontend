@@ -75,7 +75,7 @@ const AlbumForm = ({ album, onRemove }) => {
             )}
           />
           <Button type="submit" variant="contained" color="primary">
-            Save
+            Submit
           </Button>
           {onRemove && (
             <Button

@@ -6,9 +6,7 @@ const useAlbums = () => {
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
-        console.log("Before fetch:", endpoint);
         const request = fetch(endpoint);
-        console.log("After fetch:", request);
 
         request
             .then((apiResponse) => {

@@ -19,7 +19,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<AlbumOverview />} />
-          <Route path="/album/:id" element={<AlbumDetail />} />
+          <Route path="/albums/:id" element={<AlbumDetail />} />
           <Route path="/new" element={<CreateAlbum />} />
         </Routes>
       </Container>
