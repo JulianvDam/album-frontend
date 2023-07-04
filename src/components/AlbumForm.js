@@ -2,19 +2,19 @@ import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Card, CardContent, TextField, Button } from '@material-ui/core';
 
-const AlbumForm = ({ album, onRemove }) => {
+const AlbumForm = ({ album, onSubmit, onRemove }) => {
   const { handleSubmit, control } = useForm({
     defaultValues: album
       ? {
-          name: album.name || '',
-          artist: album.artist || '',
-          imageURL: album.imageURL || '',
-        }
+        name: album.name || '',
+        artist: album.artist || '',
+        imageURL: album.imageURL || '',
+      }
       : {
-          name: '',
-          artist: '',
-          imageURL: '',
-        },
+        name: '',
+        artist: '',
+        imageURL: '',
+      },
   });
 
   const handleRemove = () => {
@@ -23,10 +23,14 @@ const AlbumForm = ({ album, onRemove }) => {
     }
   };
 
+  const handleFormSubmit = (data) => {
+    onSubmit(data);
+  };
+
   return (
     <Card>
       <CardContent>
-        <form>
+        <form onSubmit={handleSubmit(handleFormSubmit)}>
           <Controller
             name="name"
             control={control}
