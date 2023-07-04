@@ -17,11 +17,6 @@ const AlbumForm = ({ album, onRemove }) => {
         },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Handle form submission here
-  };
-
   const handleRemove = () => {
     if (onRemove) {
       onRemove();
@@ -31,7 +26,7 @@ const AlbumForm = ({ album, onRemove }) => {
   return (
     <Card>
       <CardContent>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit}>
           <Controller
             name="name"
             control={control}
