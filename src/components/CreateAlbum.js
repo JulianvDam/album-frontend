@@ -7,7 +7,7 @@ const CreateAlbum = () => {
 
   const handleSubmit = async (newAlbum) => {
     try {
-      const response = await fetch('http://alb-album-1900935504.us-east-1.elb.amazonaws.com/api/album/api/album', {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/album`, {
         method: 'POST',
         body: JSON.stringify(newAlbum),
         headers: { 'Content-Type': 'application/json' },
