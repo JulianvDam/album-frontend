@@ -9,7 +9,7 @@ const AlbumDetail = () => {
   const navigate = useNavigate();
 
   const removeAlbum = () => {
-    fetch(`/api/album/${albumId}`, { method: 'DELETE' })
+    fetch(`http://alb-album-1900935504.us-east-1.elb.amazonaws.com/api/album/${albumId}`, { method: 'DELETE' })
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to delete album');
