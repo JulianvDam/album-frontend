@@ -8,11 +8,11 @@ const AlbumDetail = () => {
   const album = useAlbum(albumId);
   const navigate = useNavigate();
 
-  const removeAlbum = async (id) => {
+  const removeAlbum = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/album/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/album/${albumId}`, {
         method: 'DELETE',
-        body: JSON.stringify(id),
+        body: JSON.stringify(albumId),
         headers: { 'Content-Type': 'application/json' },
       });
 

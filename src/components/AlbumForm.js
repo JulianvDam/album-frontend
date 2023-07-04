@@ -26,8 +26,8 @@ const AlbumForm = ({ album, onSubmit, onRemove }) => {
   const handleFormSubmit = (data) => {
     onSubmit(data);
   };
-  const handleFormDelete = (data) => {
-    onRemove(data);
+  const handleFormDelete = () => {
+    onRemove();
   }
 
   return (
