@@ -83,7 +83,7 @@ const AlbumForm = ({ album, onSubmit, onRemove }) => {
             <Button
               variant="contained"
               color="secondary"
-              onClick={handleRemove(handleFormDelete)}
+              onClick={() => handleRemove(handleFormDelete)}
               style={{ marginLeft: '8px' }}
             >
               Delete album
