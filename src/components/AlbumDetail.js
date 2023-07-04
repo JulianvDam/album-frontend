@@ -30,12 +30,16 @@ const AlbumDetail = () => {
 
   const editAlbum = async (data) => {
     try {
+      const requestBody = {
+        item1: albumId,
+        item2: JSON.stringify(data)
+      };
+
       const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/album/${albumId}`, {
         method: 'PUT',
-        body: JSON.stringify(data),
+        body: JSON.stringify(requestBody),
         headers: { 'Content-Type': 'application/json' },
       });
-
       if (!response.ok) {
         console.error(response.statusText);
         return;
