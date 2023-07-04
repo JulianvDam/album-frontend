@@ -3,13 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { Card, CardContent, TextField, Button } from '@material-ui/core';
 
 const AlbumForm = ({ album, onSubmit, onRemove }) => {
-  const { handleSubmit, control } = useForm({
-      defaultValues: {
-        name: album?.name || '',
-        artist: album?.artist || '',
-        imageURL: album?.imageURL || '',
-    },
-  });
+  const { handleSubmit, control } = useForm();
 
   const handleFormSubmit = (data) => {
     onSubmit(data);
@@ -19,6 +13,12 @@ const AlbumForm = ({ album, onSubmit, onRemove }) => {
   return (
     <Card>
       <CardContent>
+        {album !== undefined && (
+          <div>
+            <h2>Album Details:</h2>
+            <p>{album}</p>
+          </div>
+        )}
         <form onSubmit={handleSubmit(handleFormSubmit)}>
           <Controller
             name="name"
