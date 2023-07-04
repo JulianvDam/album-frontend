@@ -5,7 +5,7 @@ function useAlbum(albumId) {
   const [album, setAlbum] = useState(null);
 
   useEffect(() => {
-    fetch(`/api/album/${albumId}`)
+    fetch(`/albums/${albumId}`)
       .then(response => response.json())
       .then(data => setAlbum(data))
       .catch(error => {
