@@ -1,12 +1,12 @@
 import React from 'react';
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import useAlbum from '../hooks/useAlbum';
 import AlbumForm from './AlbumForm';
 
 const AlbumDetail = () => {
   const { albumId } = useParams();
   const album = useAlbum(albumId);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const removeAlbum = () => {
     fetch(`/api/albums/${albumId}`, { method: 'DELETE' })
@@ -16,13 +16,12 @@ const AlbumDetail = () => {
         }
         // Handle successful deletion
         // Redirect to the album overview page
-        history.push('/');
+        navigate('/');
       })
       .catch(error => {
         console.error(error);
       });
   };
-  
 
   if (!album) {
     return <div>No album found...</div>;
