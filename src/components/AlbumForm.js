@@ -15,8 +15,7 @@ const AlbumForm = ({ album, onSubmit, onRemove }) => {
       <CardContent>
         {album !== undefined && (
           <div>
-            <h2>Album Details:</h2>
-            <p>{album}</p>
+            <h6>{album}</h6>
           </div>
         )}
         <form onSubmit={handleSubmit(handleFormSubmit)}>
