@@ -25,7 +25,7 @@ const AlbumDetail = () => {
   
 
   if (!album) {
-    return <div>Loading album...</div>;
+    return <div>No album found...</div>;
   }
 
   return (

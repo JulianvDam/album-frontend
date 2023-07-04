@@ -8,7 +8,7 @@ const AlbumOverview = () => {
   const albums = useAlbums();
 
   if (!albums || !albums.length) {
-    return <div>Loading albums...</div>;
+    return <div>No albums found...</div>;
   }
 
   return (
