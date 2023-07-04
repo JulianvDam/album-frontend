@@ -10,7 +10,7 @@ const AlbumDetail = () => {
 
   const removeAlbum = async (id) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/album`, {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE}/api/album/${id}`, {
         method: 'DELETE',
         body: JSON.stringify(id),
         headers: { 'Content-Type': 'application/json' },
