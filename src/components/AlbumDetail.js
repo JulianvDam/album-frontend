@@ -9,7 +9,7 @@ const AlbumDetail = () => {
   const navigate = useNavigate();
 
   const removeAlbum = () => {
-    fetch(`/api/albums/${albumId}`, { method: 'DELETE' })
+    fetch(`/api/album/${albumId}`, { method: 'DELETE' })
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to delete album');
