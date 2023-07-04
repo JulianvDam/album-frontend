@@ -4,7 +4,8 @@ import useAlbum from '../hooks/useAlbum';
 import AlbumForm from './AlbumForm';
 
 const AlbumDetail = () => {
-  const { albumId } = useParams();
+  const path = window.location.pathname;
+  const albumId = path.substring(path.lastIndexOf('/') + 1);
   const album = useAlbum(albumId);
   const navigate = useNavigate();
 
@@ -54,7 +55,7 @@ const AlbumDetail = () => {
     <div>
       <Link to="/">Back to Overview</Link>
       <div>Edit Album:</div>
-      <AlbumForm album={album} onRemove={removeAlbum} />
+      <AlbumForm album={album} onRemove={removeAlbum(albumId)} />
     </div>
   );
 };
