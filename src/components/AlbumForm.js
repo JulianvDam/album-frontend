@@ -4,17 +4,11 @@ import { Card, CardContent, TextField, Button } from '@material-ui/core';
 
 const AlbumForm = ({ album, onSubmit, onRemove }) => {
   const { handleSubmit, control } = useForm({
-    defaultValues: album
-      ? {
-        name: album.name || '',
-        artist: album.artist || '',
-        imageURL: album.imageURL || '',
-      }
-      : {
-        name: '',
-        artist: '',
-        imageURL: '',
-      },
+      defaultValues: {
+        name: album?.name || '',
+        artist: album?.artist || '',
+        imageURL: album?.imageURL || '',
+    },
   });
 
   const handleFormSubmit = (data) => {
