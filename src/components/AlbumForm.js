@@ -17,13 +17,13 @@ const AlbumForm = ({ album, onSubmit, onRemove }) => {
       },
   });
 
-
   const handleFormSubmit = (data) => {
     onSubmit(data);
   };
+
   const handleFormDelete = (data) => {
     onRemove(data);
-  }
+  };
 
   return (
     <Card>
@@ -74,17 +74,17 @@ const AlbumForm = ({ album, onSubmit, onRemove }) => {
           <Button type="submit" variant="contained" color="primary">
             Submit
           </Button>
-          {onRemove &&(
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handleFormDelete}
-              style={{ marginLeft: '8px' }}
-            >
-              Delete album
-            </Button>
-          )}
         </form>
+        {onRemove && (
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleFormDelete}
+            style={{ marginLeft: '8px' }}
+          >
+            Delete album
+          </Button>
+        )}
       </CardContent>
     </Card>
   );
