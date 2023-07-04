@@ -55,7 +55,8 @@ const AlbumDetail = () => {
     <div>
       <Link to="/">Back to Overview</Link>
       <div>Edit Album:</div>
-      <AlbumForm album={album} onRemove={removeAlbum(albumId)} />
+      <AlbumForm album={album} onRemove={() => removeAlbum(albumId)} />
+
     </div>
   );
 };
