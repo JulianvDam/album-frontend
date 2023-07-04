@@ -11,7 +11,7 @@ const useAlbums = () => {
         request
             .then((apiResponse) => {
                 if (!apiResponse.ok) {
-                    console.error(apiResponse.statusText);
+                    console.error("Failed to fetch albums");
                     return;
                 }
 
