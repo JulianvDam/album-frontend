@@ -7,12 +7,9 @@ import useAlbums from '../hooks/useAlbums';
 const AlbumOverview = () => {
   const albums = useAlbums();
 
-  if (!albums || !albums.length) {
-    return <div>No albums found...</div>;
-  }
-
   return (
     <>
+      {(!albums || !albums.length) && <div>No albums found...</div>}
       <Grid container spacing={2}>
         {albums.map((album) => (
           <Grid item xs={12} sm={6} md={4} key={album.id}>
